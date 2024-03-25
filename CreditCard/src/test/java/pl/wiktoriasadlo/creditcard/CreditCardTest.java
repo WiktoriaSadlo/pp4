@@ -32,13 +32,10 @@ public class CreditCardTest {
     @Test
     void itDenyCreditBelowThresholdV1() {
         CreditCard card = new CreditCard();
-        try{
-            card.assignCreditLimit(BigDecimal.valueOf(50));
-            fail("Should throw exception");
-
-        }catch(CreditBelowThresholdException e){
-            assertTrue(true);
-        }
+        assertThrows(
+                CreditBelowThresholdException.class,
+                () -> card.assignCreditLimit(BigDecimal.valueOf(50))
+        );
 
     }
     @Test
@@ -48,13 +45,6 @@ public class CreditCardTest {
             CreditBelowThresholdException.class,
             () -> card.assignCreditLimit(BigDecimal.valueOf(100))
     );
-        try{
-            card.assignCreditLimit(BigDecimal.valueOf(50));
-            fail("Should throw exception");
-
-        }catch(CreditBelowThresholdException e){
-            assertTrue(true);
-        }
 
     }
 

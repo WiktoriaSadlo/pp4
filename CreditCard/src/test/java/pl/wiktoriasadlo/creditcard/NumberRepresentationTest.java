@@ -26,11 +26,12 @@ public class NumberRepresentationTest {
 
     @Test
     void testBigDecimal() {
-        BigDecimal a = 0.03;
-        BigDecimal b = 0.02;
+        BigDecimal a = new BigDecimal("0.002");
+        BigDecimal b = new BigDecimal("0.003");
+
 
         System.out.println("Big Decimal: ");
-        System.out.println(a-b);
+        System.out.println(a.subtract(b));
     }
 
 }
