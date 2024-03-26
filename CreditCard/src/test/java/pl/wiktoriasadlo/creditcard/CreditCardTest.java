@@ -75,10 +75,10 @@ public class CreditCardTest {
     void itDenyPaymentWhenNotEnoughMoney() {
         CreditCard card = new CreditCard();
         card.assignCreditLimit(BigDecimal.valueOf(1000));
-        card.pay(BigDecimal.valueOf(100));
+        card.pay(BigDecimal.valueOf(900));
 
         assertThrows(
-                InsufficientFoundsExceptions.class,
+                NotEnoughMoneyException.class,
                 () -> card.pay(BigDecimal.valueOf(200))
         );
     }
