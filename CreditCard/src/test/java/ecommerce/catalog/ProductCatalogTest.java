@@ -1,4 +1,4 @@
-package ecommerce;
+package ecommerce.catalog;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -11,18 +11,23 @@ public class ProductCatalogTest {
 
     @Test
     void itListAvailableProducts() {
-        ProductCatalog catalog = thereIsProductCatalog();
+        ProductCatalog catalog = createProductCatalog();
 
         List<Product> products = catalog.allProducts();
 
         assert products.isEmpty();
     }
 
+    private static ProductCatalog createProductCatalog() {
+        ProductCatalog catalog = new ProductCatalog(new ArrayListProductStorage());
+        return catalog;
+    }
+
 
 
     @Test
     void itAllowsToAddProduct() {
-        ProductCatalog catalog = thereIsProductCatalog();
+        ProductCatalog catalog = createProductCatalog();
 
         catalog.addProduct("Lego set 8083", "Nice one");
         List<Product> products = catalog.allProducts();
@@ -33,7 +38,7 @@ public class ProductCatalogTest {
 
     @Test
     void itLoadsSingleProductById() {
-        ProductCatalog catalog = thereIsProductCatalog();
+        ProductCatalog catalog = createProductCatalog();
         String id = catalog.addProduct("Lego set 8083", "Nice one");
 
         Product loaded = catalog.getProductBy(id);
@@ -43,7 +48,7 @@ public class ProductCatalogTest {
 
     @Test
     void itAllowsChangePrice() {
-        ProductCatalog catalog = thereIsProductCatalog();
+        ProductCatalog catalog = createProductCatalog();
         String id = catalog.addProduct("Lego set 8083", "Nice one");
 
         catalog.changePrice(id, BigDecimal.valueOf(10.10));

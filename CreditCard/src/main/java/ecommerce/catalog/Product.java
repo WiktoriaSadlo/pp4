@@ -1,4 +1,4 @@
-package ecommerce;
+package ecommerce.catalog;
 
 import java.math.BigDecimal;
 import java.util.UUID;
