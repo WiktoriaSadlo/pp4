@@ -1,9 +1,9 @@
-const hello = () => alert("Hello");
-
-hello();
-
-async function getProducts() => {
-  const response = await fetch("/api/products");
-  const products = await response.json();
-  return products;
+const getProducts = () => {
+  return fetch("/api/products")
+      .then(r => r.json())
 }
+
+(async () => {
+  const products = await getProducts();
+  console.log(products);
+})();
