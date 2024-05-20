@@ -43,7 +43,7 @@ public class ProductCatalogTest {
 
         Product loaded = catalog.getProductBy(id);
 
-        assertThat(id).isEqualTo(loaded.getId());
+        assertThat(id).isEqualTo(loaded.getID());
     }
 
     @Test
