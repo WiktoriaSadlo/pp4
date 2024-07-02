@@ -1,6 +1,7 @@
 package ecommerce.catalog;
 
 import org.junit.jupiter.api.Test;
+
 import static org.assertj.core.api.Assertions.*;
 
 import java.math.BigDecimal;
@@ -13,8 +14,8 @@ public class HashMapProductStorageTest {
 
     @Test
     void itStoresAndLoadProduct() {
-        var product = thereIsExampleProduct();
-        var productStorage = thereIsProductStorage();
+        Product product = thereIsExampleProduct();
+        ProductStorage productStorage = thereIsProductStorage();
 
         productStorage.add(product);
 

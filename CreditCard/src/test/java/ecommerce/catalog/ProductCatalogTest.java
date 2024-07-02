@@ -1,7 +1,7 @@
 package ecommerce.catalog;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 import static org.assertj.core.api.Assertions.*;
 
 import java.math.BigDecimal;
@@ -43,7 +43,7 @@ public class ProductCatalogTest {
 
         Product loaded = catalog.getProductBy(id);
 
-        assertThat(id).isEqualTo(loaded.getID());
+        assertThat(id).isEqualTo(loaded.getId());
     }
 
     @Test

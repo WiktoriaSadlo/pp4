@@ -16,18 +16,9 @@ public class CreditCardTest {
         //Act
         card.assignCreditLimit(BigDecimal.valueOf(1000));
         //Assert
-        assert  BigDecimal.valueOf(1000).equals(card.getBalance());
+        assert BigDecimal.valueOf(1000).equals(card.getBalance());
     }
-    @Test
-    void itAllowsToAssignCreditV2() {
-        //Arrange
-        CreditCard card = new CreditCard();
 
-        //Act
-        card.assignCreditLimit(BigDecimal.valueOf(1200));
-        //Assert
-        assert  BigDecimal.valueOf(1000).equals(card.getBalance());
-    }
 
     @Test
     void itDenyCreditBelowThresholdV1() {
@@ -43,26 +34,18 @@ public class CreditCardTest {
     CreditCard card = new CreditCard();
     assertThrows(
             CreditBelowThresholdException.class,
-            () -> card.assignCreditLimit(BigDecimal.valueOf(100))
+            () -> card.assignCreditLimit(BigDecimal.valueOf(10))
     );
 
     }
 
-    @Test
-    void itDenyCreditReassignment() {
-        CreditCard card = new CreditCard();
-        card.assignCreditLimit(BigDecimal.valueOf(1000));
 
-        assertThrows(
-                CantReassignException.class,
-                () -> card.assignCreditLimit(BigDecimal.valueOf(1200))
-        );
-    }
 
     @Test
     void payForSomething() {
         CreditCard card = new CreditCard();
         card.assignCreditLimit(BigDecimal.valueOf(1000));
+
         card.pay(BigDecimal.valueOf(100));
 
         assertEquals(

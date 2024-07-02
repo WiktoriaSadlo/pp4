@@ -8,7 +8,7 @@ public class HashMapProductStorage implements ProductStorage {
     HashMap<String, Product> productHashMap;
 
     public HashMapProductStorage() {
-        this.productHashMap = new HashMap<>();
+        productHashMap = new HashMap<>();
     }
 
     @Override

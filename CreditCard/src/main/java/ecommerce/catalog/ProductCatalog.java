@@ -1,12 +1,11 @@
 package ecommerce.catalog;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class ProductCatalog {
-    private ProductStorage productStorage;
+    private final ProductStorage productStorage;
 
     public ProductCatalog(ProductStorage productStorage) {
         this.productStorage = productStorage;
@@ -20,7 +19,7 @@ public class ProductCatalog {
         UUID id = UUID.randomUUID();
         Product newProduct = new Product(id , name, description);
         productStorage.add(newProduct);
-        return newProduct.getID();
+        return newProduct.getId();
     }
 
 
@@ -30,7 +29,7 @@ public class ProductCatalog {
     }
 
     public void changePrice(String id, BigDecimal newPrice) {
-        Product product = getProductBy(id);
+        Product product = this.getProductBy(id);
         product.changePrice(newPrice);
     }
 }
